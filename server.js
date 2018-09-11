@@ -30,7 +30,7 @@ app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public/assets"));
+app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
@@ -52,16 +52,21 @@ app.get("/scrape", function (req, res) {
 
         // Now, we grab every h2 within an article tag, and do the following:
         $("article h2").each(function (i, element) {
+            if (i < 20) {
             // Save an empty result object
             var result = {};
-
+       
             // Add the text and href of every link, and save them as properties of the result object
             result.title = $(this)
-                .children("a")
-                .text();
-            result.link = $(this)
-                .children("a")
-                .attr("href");
+            .children("a")
+            .text();
+          result.link = $(this)
+            .children("a")
+            .attr("href");
+            result.summary = $(this)
+            
+               
+
 
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
@@ -73,6 +78,7 @@ app.get("/scrape", function (req, res) {
                     // If an error occurred, send it to the client
                     return res.json(err);
                 });
+            }
         });
 
         // If we were able to successfully scrape and save an Article, send a message to the client
@@ -104,7 +110,7 @@ app.get("/", function (req, res) {
             console.log(hbsObject);
             res.render("index", hbsObject);
         });
-  });
+});
 
 // Start the server
 app.listen(PORT, function () {
