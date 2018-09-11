@@ -1,7 +1,28 @@
-h1 {
-    background-color: rgb(194, 194, 247);
+.jumbotron {
+    background-image: url("../images/newspaper.jpg");
+    color: white;
+  
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
     color: black;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    font-size: 16px; 
+}
+
+h4 {
+    background-color: #7f7979;
+    color: white;
+    padding: 10px;
+}
+
+#notes {
+    margin-left: 40px; 
 }

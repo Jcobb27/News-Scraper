@@ -51,7 +51,7 @@ app.get("/scrape", function (req, res) {
 
         // Now, we grab every h2 within an article tag, and do the following:
         $("article div.item-info").each(function (i, element) {
-            if (i < 20) {
+            if (i < 5) {
                 // Save an empty result object
                 var result = {};
 

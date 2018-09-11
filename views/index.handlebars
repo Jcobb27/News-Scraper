@@ -1,18 +1,34 @@
-  <h1>Articles</h1>
-
-<div id = "container">
-            <ol>
-
-                {{#each articles}} 
-                <ul>
-                    
-                    <a href = "{{link}}" target = "_blank"><h4>{{title}}</h4></a>
-                   
-                  <p data-id = {{this.id}} + {{this.title}} + {{this.link}}>  {{summary}} </p>
-                    
-                </ul>
-              {{/each}}
-
-            </ol>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Mongo Scraper</h1>
+    <p class="lead">NPR Edition</p>
+  </div>
 </div>
-            <div id="notes"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9" id = "articles">
+    
+
+        {{#each articles}}
+        
+
+          <a href="{{link}}" target="_blank">
+            <h4>{{title}}</h4>
+          </a>
+
+          <p data-id= {{this.id}} + {{this.title}} + {{this.link}}> {{summary}} </p>
+          <hr>
+        
+        {{/each}}
+
+    
+    </div>
+
+    <div class="col-md-3">
+
+      <div id="notes"></div>
+    </div>
+
+  </div>
+</div>
