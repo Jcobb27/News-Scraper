@@ -26,3 +26,8 @@ h4 {
 #notes {
     margin-left: 40px; 
 }
+
+.btn {
+    color: white;
+    background-color: #7f7979;
+}
