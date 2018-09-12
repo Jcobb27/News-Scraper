@@ -1,2 +1,4 @@
 # News-Scraper
-Using Mongoose and Cherrio.js to scrape news articles from another website
+Scrapes news articles from the NPR website.
+Created by Jennifer Cobb using Express, Handlebars, MongoDB, and Cheerio.js.
+https://gentle-springs-35889.herokuapp.com/
